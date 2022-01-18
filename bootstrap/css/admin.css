@@ -1,0 +1,44 @@
+thead {
+        background-color:  #6cc6ce;
+}
+.btn-primary {
+        background-color:  #6cc6ce;
+        color: black;
+}
+
+
+
+body {
+  font-family: 'FS Truman';
+  font-style: 'normal';
+}
+
+#header {
+  color:  #6cc6ce;
+  font-weight: bold;
+  font-size: 36px;
+  background-color: #fff!important
+}
+
+#Upload {
+  background-color: #6cc6ce;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: #6cc6ce;
+  color: black;
+}
+
+.nav-link {
+  color: black;
+}
+
+.box {
+  background-color: #6cc6ce;
+}
+
+#submitAdmissionButton {
+
+  background-color: #6cc6ce;
+}

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="bootstrap/css/admin.css" >
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.357.0.min.js"></script>
+  <script type="text/javascript">
+
+  //Bucket Configurations
+
+  //  var bucketName = "competeme";
+  //  var bucketRegion = "ap-south-1";
+  //  var IdentityPoolId = "ap-south-1:990a56cc-4496-41d3-8f32-c3deac70c18a";
+
+  //  AWS.config.update({
+  //                 region: bucketRegion,
+  //                 credentials: new AWS.CognitoIdentityCredentials({
+  //                 IdentityPoolId: IdentityPoolId
+  //                 })
+  //             });
+
+  //             var s3 = new AWS.S3({
+  //                 apiVersion: '2006-03-01',
+  //                 params: {Bucket: bucketName}
+  //         });
+  </script>
+
+
+  <!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+
+  <title>SampleFilmDetails</title>
+  <style>
+    #uploadHeader{
+      margin-top: 10px;
+    }
+    .container {
+      font-size: x-large;
+    }
+
+    .card-header, .card-body, .card-footer {
+      background-color: cornflowerblue;
+      font-family: fantasy;
+      color: aliceblue;
+    }
+
+    #submitAdmissionButton {
+      background-color: #28a745;
+      /* align-content: center; */
+      padding-top: inherit;
+      color: antiquewhite;
+      font-size: large;
+}
+
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 800px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- LayOut -->
+  <!-- <nav class="navbar navbar-light shadow p-3 mb-5 bg-white rounded">
+    
+    <img src="images/mk_logo.jpg" alt="MonkeyKrew Logo" height="30">
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="watch.html">Watch</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Upload</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="ranking.html">Ranking</a>
+      </li>
+    </ul>
+
+  </nav> -->
+  <div class="container">
+
+    <div class="card text-center">
+      <div class="card-header" id="uploadHeader">
+        Post Your Favourite Film Info
+      </div>
+      <div class="card-body">
+        <form id="submitFilm"  action="https://pndb4zhtq8.execute-api.ap-south-1.amazonaws.com/dev/sampleFilmInfo" method="post">
+          <div class="form-group row">
+            <label for="ShortFilmTitle" class="col-sm-4 col-form-label">Film Title *</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="ShortFilmTitle" required="true">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="Caption" class="col-sm-4 col-form-label">Caption</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="Caption">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="Uploader" class="col-sm-4 col-form-label">Director*</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="Director" required="true">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="Producer" class="col-sm-4 col-form-label">Producer*</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="Producer" required="true">
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="Theme" class="col-sm-4 col-form-label">Theme</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="Theme">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="Jhonor" class="col-sm-4 col-form-label">Jhonor</label>
+            <div class="col-sm-6">
+              <select class="custom-select mr-sm-2" id="Jhonor">
+                <option selected>Choose...</option>
+                <option value="1">Action</option>
+                <option value="2">Drama</option>
+                <option value="3">Horror</option>
+                <option value="3">Fiction</option>
+                <option value="3">Comic</option>
+                <option value="3">Fantasy</option>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="Mobile" class="col-sm-4 col-form-label">Mobile*</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="Mobile" required="true">
+            </div>
+          </div>
+
+          <!-- <div class="form-group row">
+            <label for="Video" class="col-sm-4 col-form-label">Upload</label>
+            <div class="col-sm-6">
+              <input id="fileUpload" type="file">
+            </div> -->
+
+            <!-- <div class="col-xs-6">
+              <progress max=”100” value=”0”></progress>
+            </div> -->
+
+
+          </div>
+
+
+          <div class="card-footer text-muted">
+            <input id="submitAdmissionButton" type="submit" class="btn btn-primary"><br>
+          </div>
+        </form>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- Navigation Bar -->
+    <script  src="js/uploadFilm.js"></script>
+
+  </body>
+  </html>
